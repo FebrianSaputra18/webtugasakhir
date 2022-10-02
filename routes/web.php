@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,8 +61,14 @@ Route::get('/sales-cek-gudang', function () {
     return view('sales.pages.cekgudang');
 });
 // endSales
-
+Route::get('/loading', function () {
+    return view('loading');
+});
 // supplier
 Route::get('/supplier-dashboard', function () {
     return view('supplier.pages.dashboard');
+});
+
+Route::get('/current-user-role', function (Request $request) {
+    return response()->json(['data'=> $request->user()->role??null]);
 });
