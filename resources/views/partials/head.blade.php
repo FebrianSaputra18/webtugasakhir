@@ -24,18 +24,18 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Font-->
-    <link rel="stylesheet" type="text/css" href="css/montserrat-font.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/montserrat-font.cs')}}s">
     <link rel="stylesheet" type="text/css"
-        href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+        href="{{asset('fonts/material-design-iconic-font/css/material-design-iconic-font.min.css')}}">
 
     {{-- bootstrap --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
     <!-- Main Style Css -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="{{asset('css/style.css')}}" />
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
 
 </head>

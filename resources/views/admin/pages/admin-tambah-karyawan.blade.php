@@ -17,27 +17,18 @@
                     <div class="form-left">
                         <h2>Informasi Umum</h2>
                         <div class="form-row">
-                            <input type="text" name="username" class="username" id="username" placeholder="Username"
+                            <input type="text" name="username" class="username" id="username" placeholder="Name"
                                 required>
                         </div>
-                        <div class="form-row form-row-1">
-                            <input type="text" name="first_name" id="first_name" class="input-text"
-                                placeholder="Nama Lengkap" required>
-                        </div>
                         <div class="form-row">
-                            <select name="position">
-                                <option value="position">Posisi</option>
-                                <option value="director">Sales</option>
-                                <option value="manager">Supplier</option>
-                                <option value="employee">Staf</option>
+                            <select name="role">
+                                <option value="" selected disabled>Role</option>
+                                <option value="2">Sales</option>
+                                <option value="3">Supplier</option>
                             </select>
                             <span class="select-btn">
                                 <i class="zmdi zmdi-chevron-down"></i>
                             </span>
-                        </div>
-                        <div class="form-row">
-                            <input type="text" name="company" class="company" id="company" placeholder="Perusahaan"
-                                required>
                         </div>
                     </div>
                     <div class="form-right">

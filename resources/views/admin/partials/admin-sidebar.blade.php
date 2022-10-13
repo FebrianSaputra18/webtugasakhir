@@ -39,7 +39,7 @@
                 <h6 class="collapse-header">Atur Menu:</h6>
                 <a class="collapse-item" href="/admin-data-sales">Cek Data sales</a>
                 <a class="collapse-item" href="/admin-data-supplier">Cek Data supplier</a>
-                <a class="collapse-item" href="/admin-tambah-karyawan">Tambah Karyawan</a>
+                <a class="collapse-item" href="{{route('tambah-karyawan.index')}}">Tambah Karyawan</a>
             </div>
         </div>
     </li>
