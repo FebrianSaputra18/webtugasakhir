@@ -19,12 +19,28 @@
                 <div class="card-body">
                     <form>
                         <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="text">Bumbu</label>
+                            <div class="form-group col-md-4">
+                                <label for="text">Tepung 50gr</label>
                                 <input type="text" class="form-control" id="bumbu" placeholder="Bumbu berapa pack?">
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="text">Tepung</label>
+                            <div class="form-group col-md-4">
+                                <label for="text">Tepung 100gr</label>
+                                <input type="text" class="form-control" id="tepung" placeholder="Tepung berapa karung?">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="text">Pecel Mahkota</label>
+                                <input type="text" class="form-control" id="bumbu" placeholder="Bumbu berapa pack?">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="text">Santan Kita</label>
+                                <input type="text" class="form-control" id="tepung" placeholder="Tepung berapa karung?">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="text">Bumbu (RB)</label>
+                                <input type="text" class="form-control" id="bumbu" placeholder="Bumbu berapa pack?">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="text">Garam Los</label>
                                 <input type="text" class="form-control" id="tepung" placeholder="Tepung berapa karung?">
                             </div>
                         </div>

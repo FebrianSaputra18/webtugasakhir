@@ -113,8 +113,19 @@
                     <h6 class="m-0 font-weight-bold text-primary">Lihat Laporan</h6>
                 </div>
                 <div class="card-body">
-                    <div class="text-center">
-                        minggu
+                    <div class="row">
+                        <div class="text-center">
+                            Pembukuan Nota Hasil Penjualan Selama Seminggu
+                        </div>
+
+                        <div class="text-center">
+                            <a href="#" class="btn btn-primary btn-icon-split">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-flag"></i>
+                                </span>
+                                <span class="text">Split Button Primary</span>
+                            </a>
+                        </div>
                     </div>
 
                 </div>

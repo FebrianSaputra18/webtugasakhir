@@ -36,7 +36,7 @@ Route::get('/admin-tambah-karyawan', function () {
 });
 
 Route::get('/admin-cek-gudang', function () {
-    return view('admin.pages.admin-cek-gudang');
+    return view('cekgudang');
 });
 
 Route::get('/admin-buat-notifikasi', function () {
@@ -58,9 +58,10 @@ Route::get('/sales-lihat-laporan', function () {
 });
 
 Route::get('/sales-cek-gudang', function () {
-    return view('sales.pages.cekgudang');
+    return view('cekgudang');
 });
 // endSales
+
 Route::get('/loading', function () {
     return view('loading');
 });
@@ -70,5 +71,5 @@ Route::get('/supplier-dashboard', function () {
 });
 
 Route::get('/current-user-role', function (Request $request) {
-    return response()->json(['data'=> $request->user()->role??null]);
+    return response()->json(['data' => $request->user()->role ?? null]);
 });

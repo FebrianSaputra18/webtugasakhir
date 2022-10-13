@@ -45,7 +45,7 @@
     </div>
     <!-- End of Page Wrapper -->
 
-    @include('partials.modal')
+    @include('sales.partials.modal')
 
     @yield('script')
 

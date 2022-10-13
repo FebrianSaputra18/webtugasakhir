@@ -23,7 +23,7 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body>
 
     <div class="container">
 
@@ -42,18 +42,32 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Selamat Datang,<br> Silahkan Login !</h1>
                                     </div>
-                                    <form class="user" action="{{route('login')}}">
+                                    <form class="user" action="{{route('login')}}" method="POST">
+                                        @method('POST')
+                                        @csrf
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user"
-                                                id="exampleInputEmail" 
-                                                name="email"
-                                                aria-describedby="emailHelp"
-                                                placeholder="Enter Phone number...">
+                                            <input type="text"
+                                                class="form-control form-control-user @error('phone_number') is-invalid @enderror"
+                                                id="exampleInputNumber" name="phone_number"
+                                                aria-describedby="numberHelp" placeholder="Enter Phone number..."
+                                                value="{{ old('phone_number') }}">
+                                            @error('phone_number')
+                                            <div class="alert alert-danger mt-2">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                            name="password"
-                                                id="exampleInputPassword" placeholder="Password">
+                                            <input type="password"
+                                                class="form-control form-control-user @error('password') is-invalid @enderror"
+                                                name="password" id="exampleInputPassword" placeholder="Password"
+                                                value="{{ old('password') }}">
+                                            @error('password')
+                                            <div class="alert alert-danger mt-2">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
