@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
+Route::middleware('auth')->get('/', function () {
+    return view('loading');
 });
 
 // admin

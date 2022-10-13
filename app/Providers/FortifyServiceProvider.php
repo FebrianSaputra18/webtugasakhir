@@ -38,24 +38,28 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
-        Fortify::loginView(function(){
+        Fortify::loginView(function () {
             return view('login');
         });
         RateLimiter::for('login', function (Request $request) {
-            $email = (string) $request->email;
+            $phone_number = (string) $request->phone_number;
 
-            return Limit::perMinute(5)->by($email . $request->ip());
+            return Limit::perMinute(5)->by($phone_number . $request->ip());
         });
 
         Fortify::authenticateUsing(function (Request $request) {
             $user = User::Where('phone_number', $request->phone_number)
-                ->first();
-
+            ->first();
+            
+            // dd($request->phone_number, $user->phone_number, Hash::check($request->password, $user->password));
             if (
                 $user &&
                 Hash::check($request->password, $user->password)
             ) {
                 return $user;
+            } else {
+                $request->session()->flash('status', 'Gagal, pastikan nomor hp dan sandi anda benar!');
+                // return false;
             }
         });
 

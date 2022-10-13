@@ -41,12 +41,18 @@
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Selamat Datang,<br> Silahkan Login !</h1>
+                                        @if (request()->session()->has('status'))
+                                            <div class="alert alert-danger mt-4">
+                                            {{ request()->session()->get('status') }}
+                                            </div>
+                                        @endif
                                     </div>
-                                    <form class="user" action="{{route('login')}}">
+                                    <form class="user" action="{{route('login')}}" method="POST">
+                                        @csrf
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
                                                 id="exampleInputEmail" 
-                                                name="email"
+                                                name="phone_number"
                                                 aria-describedby="emailHelp"
                                                 placeholder="Enter Phone number...">
                                         </div>
@@ -65,15 +71,6 @@
                                         <button class="btn btn-primary btn-user btn-block" type="submit">
                                             Login
                                         </button>
-                                        <a href="/admin-dashboard" class="btn btn-primary btn-user btn-block">
-                                            admin
-                                        </a>
-                                        <a href="/sales-dashboard" class="btn btn-primary btn-user btn-block">
-                                            sales
-                                        </a>
-                                        <a href="/supplier-dashboard" class="btn btn-primary btn-user btn-block">
-                                            supplier
-                                        </a>
                                     </form>
                                     <hr>
                                     <div class="text-center">
