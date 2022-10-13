@@ -89,6 +89,8 @@
     <!-------------------------------------->
     <div class="text_cursor"></div>
   </div>
+  <!-- axios -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -108,8 +110,6 @@
       const word_len = text_array_slice.map((word) => {
         return word.length;
       })
-
-      console.log(word_len);
 
       let timings = {
         easing: `steps(${Number(word_len[0] + 1)}, end)`,
@@ -264,20 +264,30 @@
     }
     typing_animation();
 
-    $(window).ready(async()=>{
-      const res = await fetch('current-user-role');
-      const data = await res.json();
-      console.log(data);
-      switch (data.data) {
-        case 1:
-          window.location.href="/admin-dashboard"
-          break;
-      
-        default:
-          break;
-      }
-    });
 
+    $(window).ready(() => {
+      axios.get('current-user-role')
+        .then(({
+          data
+        }) => {
+          switch (Number(data.data)) {
+            case 1:
+              window.location.href = '/admin-dashboard'
+              break;
+            case 2:
+              window.location.href = '/sales-dashboard'
+              break;
+            case 3:
+              window.location.href = '/supplier-dashboard'
+              break;
+            default:
+              window.location.href = '/login'
+              break;
+          }
+        }).catch((err) => {
+          console.error(err)
+        });
+    });
   </script>
 </body>
 

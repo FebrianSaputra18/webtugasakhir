@@ -14,9 +14,7 @@
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -41,28 +39,24 @@
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Selamat Datang,<br> Silahkan Login !</h1>
+                                        @if (request()->session()->has('status'))
+                                        <div class="alert alert-danger mt-4">
+                                            {{ request()->session()->get('status') }}
+                                        </div>
+                                        @endif
                                     </div>
                                     <form class="user" action="{{route('login')}}" method="POST">
-                                        @method('POST')
                                         @csrf
                                         <div class="form-group">
-                                            <input type="text"
-                                                class="form-control form-control-user @error('phone_number') is-invalid @enderror"
-                                                id="exampleInputNumber" name="phone_number"
-                                                aria-describedby="numberHelp" placeholder="Enter Phone number..."
-                                                value="{{ old('phone_number') }}">
+                                            <input type="text" class="form-control form-control-user @error('phone_number') is-invalid @enderror" id="exampleInputNumber" name="phone_number" aria-describedby="numberHelp" placeholder="Enter Phone number..." value="{{ old('phone_number') }}">
                                             @error('phone_number')
                                             <div class="alert alert-danger mt-2">
                                                 {{ $message }}
                                             </div>
                                             @enderror
-
                                         </div>
                                         <div class="form-group">
-                                            <input type="password"
-                                                class="form-control form-control-user @error('password') is-invalid @enderror"
-                                                name="password" id="exampleInputPassword" placeholder="Password"
-                                                value="{{ old('password') }}">
+                                            <input type="password" class="form-control form-control-user @error('password') is-invalid @enderror" name="password" id="exampleInputPassword" placeholder="Password" value="{{ old('password') }}">
                                             @error('password')
                                             <div class="alert alert-danger mt-2">
                                                 {{ $message }}
@@ -79,15 +73,6 @@
                                         <button class="btn btn-primary btn-user btn-block" type="submit">
                                             Login
                                         </button>
-                                        <a href="/admin-dashboard" class="btn btn-primary btn-user btn-block">
-                                            admin
-                                        </a>
-                                        <a href="/sales-dashboard" class="btn btn-primary btn-user btn-block">
-                                            sales
-                                        </a>
-                                        <a href="/supplier-dashboard" class="btn btn-primary btn-user btn-block">
-                                            supplier
-                                        </a>
                                     </form>
                                     <hr>
                                     <div class="text-center">
