@@ -1,4 +1,5 @@
 <!-- axios -->
+@csrf
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <!-- Bootstrap core JavaScript-->
 <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
@@ -25,7 +26,38 @@
 <!-- Page level custom scripts -->
 <script src="{{asset('js/demo/chart-area-demo.js')}}"></script>
 <script src="{{asset('js/demo/chart-pie-demo.js')}}"></script>
-
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    axios.defaults.headers.common['X-XSRF-TOKEN'] = $("input[name='_token']").val();
+    const throwErr = err => {
+      if (err.response.status == 422) {
+        let message = err.response.data.errors
+        let teks_error = ''
+        $.each(message, (i, e) => {
+          if (e.length > 1) {
+            $.each(e, (id, el) => {
+              teks_error += `<p>${el}</p>`
+            })
+          } else {
+            teks_error += `<p>${e}</>`
+          }
+        })
+        swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          html: teks_error,
+        })
+      } else {
+        let message = err.response.data.message
+        swal.fire({
+          icon: 'error',
+          title: message.head,
+          text: message.body,
+        })
+      }
+    };
+</script>
+@yield('script')
 
 </body>
 

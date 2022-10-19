@@ -33,10 +33,10 @@ Route::get('/admin-data-supplier', function () {
 });
 
 Route::group(['middleware'=>'auth', 'prefix'=>'admin'], function(){
-    Route::resource('tambah-karyawan', UserController::class);
+    Route::resource('karyawan', UserController::class);
+    Route::get('data-supplier', [UserController::class, 'supplier'])->name('data-supplier');
 });
-//     return view('admin.pages.admin-tambah-karyawan');
-// });
+
 
 Route::get('/admin-cek-gudang', function () {
     return view('cekgudang');

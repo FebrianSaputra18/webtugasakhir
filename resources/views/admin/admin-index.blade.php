@@ -48,6 +48,5 @@
 
     @include('partials.modal')
 
-    @yield('script')
-
+    
     @include('partials.footer')
