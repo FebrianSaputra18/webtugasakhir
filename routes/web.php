@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Sales\BuatlaporankaryawanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,9 +50,9 @@ Route::get('/sales-dashboard', function () {
     return view('sales.pages.dashboard');
 });
 
-Route::get('/sales-buat-laporan', function () {
-    return view('sales.pages.buatlaporan');
-});
+// Route::get('/sales-buat-laporan', function () {
+//     return view('sales.pages.buatlaporan');
+// });
 
 Route::get('/sales-lihat-laporan', function () {
     return view('sales.pages.lihatlaporan');
@@ -73,3 +74,6 @@ Route::get('/supplier-dashboard', function () {
 Route::get('/current-user-role', function (Request $request) {
     return response()->json(['data' => $request->user()->role ?? null]);
 });
+
+Route::post('/sales-buat-laporan', [BuatlaporankaryawanController::class, 'store']);
+Route::get('/sales-buat-laporan', [BuatlaporankaryawanController::class, 'create']);
