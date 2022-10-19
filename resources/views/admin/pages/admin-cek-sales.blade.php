@@ -148,7 +148,7 @@
                                             <td>{{$user->role==2?'Sales':'Supplier'}}</td>
                                             <td>{{$user->address}}</td>
                                             <td>{{$user->created_at}}</td>
-                                            <td><a href="" class="btn btn-sm btn-primary">Edit</a> <button
+                                            <td><a href="{{route('karyawan.edit', $user->id)}}" class="btn btn-sm btn-primary">Edit</a> <button
                                                     onclick="deleteData('{{$user->id}}')"
                                                     class="btn btn-sm btn-danger">Hapus</button></td>
                                         </tr>
