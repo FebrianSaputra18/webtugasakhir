@@ -33,7 +33,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.admin-tambah-karyawan');
+        $user = null;
+        return view('admin.pages.admin-tambah-karyawan', compact('user'));
     }
 
     /**
@@ -70,7 +71,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        if (!$user) {
+            return redirect()->back();
+        }
+        return view('admin.pages.admin-tambah-karyawan', compact('user'));
     }
 
     /**
