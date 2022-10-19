@@ -37,9 +37,9 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Atur Menu:</h6>
-                <a class="collapse-item" href="/admin-data-sales">Cek Data sales</a>
-                <a class="collapse-item" href="/admin-data-supplier">Cek Data supplier</a>
-                <a class="collapse-item" href="/admin-tambah-karyawan">Tambah Karyawan</a>
+                <a class="collapse-item" href="{{route('karyawan.index')}}">Cek Data sales</a>
+                <a class="collapse-item" href="{{route('data-supplier')}}">Cek Data supplier</a>
+                <a class="collapse-item" href="{{route('karyawan.create')}}">Tambah Karyawan</a>
             </div>
         </div>
     </li>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Sales\BuatlaporankaryawanController;
@@ -32,9 +33,11 @@ Route::get('/admin-data-supplier', function () {
     return view('admin.pages.admin-cek-supplier');
 });
 
-Route::get('/admin-tambah-karyawan', function () {
-    return view('admin.pages.admin-tambah-karyawan');
+Route::group(['middleware'=>'auth', 'prefix'=>'admin'], function(){
+    Route::resource('karyawan', UserController::class);
+    Route::get('data-supplier', [UserController::class, 'supplier'])->name('data-supplier');
 });
+
 
 Route::get('/admin-cek-gudang', function () {
     return view('cekgudang');
