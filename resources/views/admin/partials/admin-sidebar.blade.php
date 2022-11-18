@@ -39,7 +39,9 @@
                 <h6 class="collapse-header">Atur Menu:</h6>
                 <a class="collapse-item" href="{{route('karyawan.index')}}">Cek Data sales</a>
                 <a class="collapse-item" href="{{route('data-supplier')}}">Cek Data supplier</a>
+                <a class="collapse-item" href="{{route('karyawan.index')}}">Cek Laporan Sales</a>
                 <a class="collapse-item" href="{{route('karyawan.create')}}">Tambah Karyawan</a>
+
             </div>
         </div>
     </li>
@@ -55,6 +57,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Atur Notifikasi:</h6>
                 <a class="collapse-item" href="/admin-cek-gudang">Cek Gudang</a>
+                <a class="collapse-item" href="/admin-buat-pesanan">Buat Pesanan</a>
                 <a class="collapse-item" href="/admin-buat-notifikasi">Buat Notifikasi</a>
             </div>
         </div>

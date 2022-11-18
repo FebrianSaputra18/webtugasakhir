@@ -4,17 +4,17 @@
 
 <div class="container-fluid">
 
-    <div class="row">
+    <div class="row ">
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Cek Data Supplier</h1>
+            <h1 class="h3 mb-0 text-gray-800">Lihat Laporan Sales</h1>
         </div>
 
         <!-- Topbar Search -->
-        <form class="d-none d-sm-inline-block form-inline mb-3 navbar-search">
+        <form class="d-none d-sm-inline-block form-inline navbar-search">
             <div class="input-group">
-                <input type="text" class="form-control bg-white border-0 small" placeholder="Search for..."
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
                     aria-label="Search" aria-describedby="basic-addon2">
                 <div class="input-group-append">
                     <button class="btn btn-primary" type="button">
@@ -129,6 +129,7 @@
                                             <th rowspan="1" colspan="1">Role</th>
                                             <th rowspan="1" colspan="1">Alamat</th>
                                             <th rowspan="1" colspan="1">Tanggal</th>
+                                            <th rowspan="1" colspan="1">Lihat Laporan</th>
                                             <th rowspan="1" colspan="1">Aksi</th>
                                         </tr>
                                     </thead>
@@ -145,10 +146,11 @@
                                         <tr class="odd">
                                             <td class="sorting_1">{{$user->name}}</td>
                                             <td class="sorting_1">{{$user->phone_number}}</td>
-                                            <td>{{$user->role==3?'Supplier':'Sales'}}</td>
+                                            <td>{{$user->role==2?'Sales':'Supplier'}}</td>
                                             <td>{{$user->address}}</td>
                                             <td>{{$user->created_at}}</td>
-                                            <td><a href="" class="btn btn-sm btn-primary">Edit</a> <button
+                                            <td><a href="" class="btn btn-sm btn-info   ">Lihat</a></td>
+                                            <td><a href="" class="btn btn-sm btn-primary">Edit</a><button
                                                     onclick="deleteData('{{$user->id}}')"
                                                     class="btn btn-sm btn-danger">Hapus</button></td>
                                         </tr>
@@ -201,5 +203,32 @@
     </div>
 
 </div>
+@endsection
 
+@section('script')
+<script>
+    const deleteData = (id) => {
+            let url = "{{route('karyawan.destroy', ':id')}}";
+            url = url.replace(':id', id);
+            swal.fire({
+                title:'Anda akan menghapus karyawan ini?',
+                icon:'warning',
+                showCancelButton:true
+            })
+            .then(({isConfirmed})=>{
+                if (isConfirmed) {
+                    axios.delete(url)
+                    .then(()=>{
+                        swal.fire({
+                            icon:'success',
+                            title:'Sukses',
+                            text:'User Berhasil dihapus'
+                        });
+                        window.location.reload();
+                    })
+                    .catch((err)=>throwErr(err))
+                }
+            })
+        };
+</script>
 @endsection

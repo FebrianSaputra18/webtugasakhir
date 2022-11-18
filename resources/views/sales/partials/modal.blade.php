@@ -9,32 +9,27 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ url ('sales-buat-laporan')}}" method="POST">
-
+            <form action="BuatLaporanInsert" method="POST">
+                @csrf
                 <div class="modal-body">
+                    <h6>Tanggal inputan</h6>
+                    <input class="form-control mb-3" type="date" name="nonota" id="nonota">
                     <table class="table table-hover">
                         <thead class="thead-dark">
                             <tr class="text-center">
                                 <th class="col-3">Nama Barang</th>
                                 <th class="">Total Bawa</th>
-                                <th class="">Laku</th>
                                 <th class="">Uang</th>
                                 <th class="">Keterangan</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @csrf
                             <tr>
                                 <th scope="row">Tepung 100gr</th>
                                 <td>
                                     <input class="form-control" type="text" placeholder="Berapa Karung ?"
                                         name="bawa100gr" id="bawa100gr">
                                 </td>
-                                <td>
-                                    <input class="form-control" type="text" placeholder="Laku berapa karung ?"
-                                        name="laku100gr" id="laku100gr">
-                                </td>
-
                                 <td>
                                     <input type="text" class="form-control" aria-describedby="emailHelp"
                                         placeholder="Rp. 100xx" name="uang100gr" id="uang100gr">
@@ -51,11 +46,6 @@
                                         name="bawa50gr" id="bawa50gr">
                                 </td>
                                 <td>
-                                    <input class="form-control" type="text" placeholder="Laku berapa karung ?"
-                                        name="laku50gr" id="laku50gr">
-                                </td>
-
-                                <td>
                                     <input type="text" class="form-control" aria-describedby="emailHelp"
                                         placeholder="Rp. 100xx" name="uang50gr" id="uang50gr">
                                 </td>
@@ -70,11 +60,6 @@
                                     <input class="form-control" type="text" placeholder="Berapa Karung ?"
                                         name="bawabumbu" id="bawabumbu">
                                 </td>
-                                <td>
-                                    <input class="form-control" type="text" placeholder="Laku berapa karung ?"
-                                        name="lakubumbu" id="lakubumbu">
-                                </td>
-
                                 <td>
                                     <input type="text" class="form-control" aria-describedby="emailHelp"
                                         placeholder="Rp. 100xx" name="uangbumbu" id="uangbumbu">
@@ -91,11 +76,6 @@
                                         name="bawapecel" id="bawapecel">
                                 </td>
                                 <td>
-                                    <input class="form-control" type="text" placeholder="Laku berapa karung ?"
-                                        name="lakupecel" id="lakupecel">
-                                </td>
-
-                                <td>
                                     <input type="text" class="form-control" aria-describedby="emailHelp"
                                         placeholder="Rp. 100xx" name="uangpecel" id="uangpecel">
                                 </td>
@@ -110,11 +90,6 @@
                                     <input class="form-control" type="text" placeholder="Berapa Karung ?"
                                         name="bawasantan" id="bawasantan">
                                 </td>
-                                <td>
-                                    <input class="form-control" type="text" placeholder="Laku berapa karung ?"
-                                        name="lakusantan" id="lakusantan">
-                                </td>
-
                                 <td>
                                     <input type="text" class="form-control" aria-describedby="emailHelp"
                                         placeholder="Rp. 100xx" name="uangsantan" id="uangsantan">
@@ -131,13 +106,8 @@
                                         name="bawagaram" id="bawagaram">
                                 </td>
                                 <td>
-                                    <input class="form-control" type="text" placeholder="Laku berapa karung ?"
-                                        name="lakugaram" id="lakugaram">
-                                </td>
-
-                                <td>
                                     <input type="text" class="form-control" aria-describedby="emailHelp"
-                                        placeholder="Rp. 100xx" name="uanggaram" id="uanggaram">
+                                        placeholder="Rp. 100xx" name="uanggaram" id="money">
                                 </td>
                                 <td>
                                     <input class="form-control" type="text" placeholder="lunas/tidak"

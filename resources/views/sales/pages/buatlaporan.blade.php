@@ -7,105 +7,6 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Buat Laporan</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-    </div>
-    <div class="row ">
-
-        <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Sek Data Sales</h1>
-        </div>
-
-        <!-- Topbar Search -->
-        <form class="d-none d-sm-inline-block form-inline navbar-search">
-            <div class="input-group">
-                <input type="text" class="form-control mb-3 border-0 small" placeholder="Search for..."
-                    aria-label="Search" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="button">
-                        <i class="fas fa-search fa-sm"></i>
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
-
-    <!-- Content Row -->
-    <div class="row">
-
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Jumlah Sales</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">19</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-user fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                Supplier</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">2</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-user fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                Pendapatan</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">Rp. 15.000.000</div>
-                        </div>
-                        <div class="col-auto">
-                            {{-- <i class="fas fa-inbox-in fa-2x text-gray-300"></i> --}}
-                            <i class="fas fa-inbox-in"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Pending Requests Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                Pengeluaran</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">Rp. 10.000.000</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-comments fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     {{-- content sales --}}
@@ -120,18 +21,125 @@
                 <div class="card-body">
                     <div class="text-center">
                         <div class="col-12">
-                            <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                src="img/undraw_posting_photo.svg" alt="...">
-                        </div>
-                        <div class="col-12">
-                            <button type="button" class="btn btn-primary btn-icon-split" data-toggle="modal"
+                            <form action="BuatLaporanInsert" method="POST">
+                                @csrf
+                                <h6>Tanggal inputan</h6>
+                                <input class="form-control mb-3 text-center" type="date" name="nonota" id="nonota">
+                                <table class="table table-hover">
+                                    <thead class="thead-dark">
+                                        <tr class="text-center">
+                                            <th class="col-3">Nama Barang</th>
+                                            <th class="">Total Bawa</th>
+                                            <th class="">Uang</th>
+                                            <th class="">Keterangan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Tepung 100gr</th>
+                                            <td>
+                                                <input class="form-control" type="text" placeholder="Berapa Karung ?"
+                                                    name="bawa100gr" id="bawa100gr">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" aria-describedby="emailHelp"
+                                                    placeholder="Rp. 100xx" name="uang100gr" id="uang100gr">
+                                            </td>
+                                            <td>
+                                                <input class="form-control" type="text" placeholder="lunas/tidak"
+                                                    name="keterangan100gr" id="keterangan100gr">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Tepung 50gr</th>
+                                            <td>
+                                                <input class="form-control" type="text" placeholder="Berapa Karung ?"
+                                                    name="bawa50gr" id="bawa50gr">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" aria-describedby="emailHelp"
+                                                    placeholder="Rp. 100xx" name="uang50gr" id="uang50gr">
+                                            </td>
+                                            <td>
+                                                <input class="form-control" type="text" placeholder="lunas/tidak"
+                                                    name="keterangan50gr" id="keterangan50gr">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Bumbu RB</th>
+                                            <td>
+                                                <input class="form-control" type="text" placeholder="Berapa Karung ?"
+                                                    name="bawabumbu" id="bawabumbu">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" aria-describedby="emailHelp"
+                                                    placeholder="Rp. 100xx" name="uangbumbu" id="uangbumbu">
+                                            </td>
+                                            <td>
+                                                <input class="form-control" type="text" placeholder="lunas/tidak"
+                                                    name="keteranganbumbu" id="keteranganbumbu">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Pecel</th>
+                                            <td>
+                                                <input class="form-control" type="text" placeholder="Berapa Karung ?"
+                                                    name="bawapecel" id="bawapecel">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" aria-describedby="emailHelp"
+                                                    placeholder="Rp. 100xx" name="uangpecel" id="uangpecel">
+                                            </td>
+                                            <td>
+                                                <input class="form-control" type="text" placeholder="lunas/tidak"
+                                                    name="keteranganpecel" id="keteranganpecel">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Santan</th>
+                                            <td>
+                                                <input class="form-control" type="text" placeholder="Berapa Karung ?"
+                                                    name="bawasantan" id="bawasantan">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" aria-describedby="emailHelp"
+                                                    placeholder="Rp. 100xx" name="uangsantan" id="uangsantan">
+                                            </td>
+                                            <td>
+                                                <input class="form-control" type="text" placeholder="lunas/tidak"
+                                                    name="keterangansantan" id="keterangansantan">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Garam</th>
+                                            <td>
+                                                <input class="form-control" type="text" placeholder="Berapa Karung ?"
+                                                    name="bawagaram" id="bawagaram">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" aria-describedby="emailHelp"
+                                                    placeholder="Rp. 100xx" name="uanggaram" id="money">
+                                            </td>
+                                            <td>
+                                                <input class="form-control" type="text" placeholder="lunas/tidak"
+                                                    name="keterangangaram" id="keterangangaram">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                </div>
+                            </form>
+                            {{-- <button type="button" class="btn btn-primary btn-icon-split" data-toggle="modal"
                                 data-target="#exampleModalCenter">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-plus"></i>
                                 </span>
                                 <span class="text">Buat Laporan</span>
 
-                            </button>
+                            </button> --}}
                         </div>
                     </div>
 

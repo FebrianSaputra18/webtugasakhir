@@ -37,23 +37,8 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Atur Menu:</h6>
-                <a class="collapse-item" href="/buat-laporan">Buat Laporan</a>
-                <a class="collapse-item" href="/lihat-laporan">Lihat Laporan</a>
-            </div>
-        </div>
-    </li>
-
-    <!-- Nav Item - Utilities Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-            aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fa-solid fa-bell"></i>
-            <span>Notifikasi</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Atur Notifikasi:</h6>
-                <a class="collapse-item" href="/cek-gudang">Cek Gudang</a>
+                <a class="collapse-item" href="/buat-laporan">Data Pesanan</a>
+                <a class="collapse-item" href="/lihat-laporan">Lihat Pesanan</a>
             </div>
         </div>
     </li>

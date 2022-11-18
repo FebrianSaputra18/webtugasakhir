@@ -6,9 +6,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Buat Laporan</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+        <h1 class="h3 mb-0 text-gray-800">Lihat Laporan</h1>
     </div>
 
     <!-- Topbar Search -->
@@ -24,83 +22,6 @@
                 </div>
             </div>
         </form>
-    </div>
-
-    <!-- Content Row -->
-    <div class="row mt-3">
-
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Jumlah Sales</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">19</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-user fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                Supplier</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">2</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-user fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                Pendapatan</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">Rp. 15.000.000</div>
-                        </div>
-                        <div class="col-auto">
-                            {{-- <i class="fas fa-inbox-in fa-2x text-gray-300"></i> --}}
-                            <i class="fas fa-inbox-in"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Pending Requests Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                Pengeluaran</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">Rp. 10.000.000</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-comments fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     {{-- content sales --}}
@@ -119,12 +40,46 @@
                         </div>
 
                         <div class="text-center">
-                            <a href="#" class="btn btn-primary btn-icon-split">
-                                <span class="icon text-white-50">
-                                    <i class="fas fa-flag"></i>
-                                </span>
-                                <span class="text">Split Button Primary</span>
-                            </a>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table class="table table-bordered dataTable" id="dataTable" role="grid"
+                                        aria-describedby="dataTable_info" style="width: 100%;" width="50%"
+                                        cellspacing="0">
+                                        <thead>
+                                            <tr role="row">
+                                                <th rowspan="1" colspan="1">Nomer Nota</th>
+                                                <th rowspan="1" colspan="1">Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        {{-- <tfoot>
+                                            <tr>
+                                                <th rowspan="1" colspan="1">Name</th>
+                                                <th rowspan="1" colspan="1">Phone</th>
+                                                <th rowspan="1" colspan="1">Role</th>
+                                                <th rowspan="1" colspan="1">Start date</th>
+                                            </tr>
+                                        </tfoot> --}}
+                                        <tbody>
+                                            @forelse ($buat_laporans as $bl)
+                                            <tr class="odd">
+                                                <td class="sorting_1">{{$bl->nonota}}</td>
+                                                {{-- <td class="sorting_1">{{$user->phone_number}}</td>
+                                                <td>{{$user->role==2?'Sales':'Supplier'}}</td>
+                                                <td>{{$user->address}}</td>
+                                                <td>{{$user->created_at}}</td> --}}
+                                                <td><a href="" class="btn btn-sm btn-primary">Lihat</a> <button
+                                                        onclick="deleteData('{{$bl->id}}')"
+                                                        class="btn btn-sm btn-danger">Hapus</button></td>
+                                            </tr>
+                                            @empty
+                                            <tr class="odd">
+                                                <td class="sorting_1 text-center" colspan="4">Belum Ada Data</td>
+                                            </tr>
+                                            @endforelse
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -132,7 +87,7 @@
             </div>
         </div>
 
-        <div class="col-lg-12 mb-4">
+        {{-- <div class="col-lg-12 mb-4">
 
             <!-- Illustrations -->
             <div class="card shadow mb-4 border-left-warning shadow h-100">
@@ -162,7 +117,7 @@
 
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 
 </div>
