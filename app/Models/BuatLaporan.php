@@ -10,7 +10,9 @@ class BuatLaporan extends Model
     use HasFactory;
 
     protected $fillable = [
+        'nama',
         'nonota',
+        'user_id',
         // 100gr
         'bawa100gr',
         'uang100gr',
@@ -36,4 +38,11 @@ class BuatLaporan extends Model
         'uanggaram',
         'keterangangaram',
     ];
+
+    public function sales()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+
+        // $laporan = User::find(2)->BuatLaporan;
+    }
 }

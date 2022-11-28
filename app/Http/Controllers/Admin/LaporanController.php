@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Sales;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\BuatLaporan;
-use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class BuatLaporanController extends Controller
+class LaporanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +15,10 @@ class BuatLaporanController extends Controller
      */
     public function index()
     {
-        $buatlaporans = BuatLaporan::all();
-        // dd($notifikasis);
-        return view('sales.pages.buatlaporan', ['buatlaporans' => $buatlaporans]);
+        $buat_laporans = BuatLaporan::with('sales')->get();
+        // $users = DB::table('users')->where('role', 2)->get();
+        // dd($buat_laporans);
+        return view('admin.pages.admin-cek-laporan-sales', ['buat_laporans' => $buat_laporans]);
     }
 
     /**
@@ -29,9 +28,7 @@ class BuatLaporanController extends Controller
      */
     public function create()
     {
-        // dd('create');
-
-        return view('sales.pages.buatlaporan');
+        //
     }
 
     /**
@@ -42,11 +39,7 @@ class BuatLaporanController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-
-        // BuatLaporan::create($request->all());
-        BuatLaporan::create(array_merge($request->all(), ['user_id' => Auth::id()]));
-        return view('sales.pages.buatlaporan');
+        //
     }
 
     /**

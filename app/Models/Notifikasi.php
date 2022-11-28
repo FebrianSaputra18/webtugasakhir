@@ -8,9 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Notifikasi extends Model
 {
     use HasFactory;
-
-    protected $table = 'notifikasis';
-
     protected $fillable = [
         'tepung50gr',
         'tepung100gr',
@@ -21,4 +18,10 @@ class Notifikasi extends Model
         'tanggalbuat',
         'keterangan',
     ];
+    public function admin()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+
+        // $laporan = User::find(2)->BuatLaporan;
+    }
 }

@@ -1,11 +1,16 @@
 <?php
 
+use App\Http\Controllers\Admin\LaporanController;
 use App\Http\Controllers\Sales\BuatLaporanController;
 use App\Http\Controllers\Admin\NotifikasiController;
 use App\Http\Controllers\Admin\PesananController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Sales\LihatLaporanController;
+use App\Http\Controllers\Sales\NotifikasiController as SalesNotifikasiController;
+use App\Http\Controllers\Sales\NotifikasiPesananController;
+use App\Models\BuatLaporan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,9 +41,15 @@ Route::get('/admin-data-supplier', function () {
     return view('admin.pages.admin-cek-supplier');
 });
 
-Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
+Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'sales'], function () {
     Route::resource('karyawan', UserController::class);
     Route::get('data-supplier', [UserController::class, 'supplier'])->name('data-supplier');
+});
+
+
+Route::group(['middleware' => 'auth', 'prefix' => 'index'], function () {
+    Route::resource('laporan', LihatLaporanController::class);
+    Route::get('/sales-lihat-laporan', [LihatLaporanController::class, 'index']);
 });
 
 
@@ -59,7 +70,8 @@ Route::get('/pesanan/create', [PesananController::class, 'create']);
 
 Route::post('PesananInsert', [PesananController::class, 'store']);
 
-Route::get('/admin-cek-laporan-sales', [LihatLaporanController::class, 'index']);
+Route::get('/admin-cek-laporan-sales', [LaporanController::class, 'index']);
+
 
 
 // endAdmin
@@ -69,26 +81,26 @@ Route::get('/sales-dashboard', function () {
     return view('sales.pages.dashboard');
 });
 
-// Route::get('/sales-buat-laporan', function () {
-//     return view('sales.pages.buatlaporan');
-// });
+Route::middleware(['auth'])->group(function () {
 
-// Buat Laporan
-Route::get('/sales-buat-laporan', [BuatLaporanController::class, 'index']);
+    Route::get('/sales-lihat-laporan', function () {
+        $buat_laporans = BuatLaporan::where('user_id', Auth::id())->get();
+        return view('sales.pages.lihatlaporan', ['buat_laporans' => $buat_laporans]);
+    });
 
-Route::get('/BuatLaporan/create', [BuatLaporanController::class, 'create']);
+    Route::get('/sales-buat-laporan', [BuatLaporanController::class, 'index']);
 
-Route::post('BuatLaporanInsert', [BuatLaporanController::class, 'store']);
+    Route::get('/BuatLaporan/create', [BuatLaporanController::class, 'create']);
 
-// Route::get('/sales-lihat-laporan', function () {
-//     return view('sales.pages.lihatlaporan');
-// });
+    Route::post('BuatLaporanInsert', [BuatLaporanController::class, 'store']);
 
-Route::get('/sales-lihat-laporan', [LihatLaporanController::class, 'index']);
+    Route::get('/sales-cek-notifikasi', [NotifikasiPesananController::class, 'index']);
+});
 
 Route::get('/sales-cek-gudang', function () {
     return view('cekgudang');
 });
+
 // endSales
 
 Route::get('/loading', function () {

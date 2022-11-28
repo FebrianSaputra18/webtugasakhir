@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('buat_laporans', function (Blueprint $table) {
             $table->id();
-            $table->date('nonota');
+            $table->string('nonota');
             // 100gr
             $table->string('bawa100gr');
             $table->string('uang100gr');

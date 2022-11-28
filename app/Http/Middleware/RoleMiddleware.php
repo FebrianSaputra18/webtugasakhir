@@ -21,19 +21,19 @@ class RoleMiddleware
         if (in_array($userRole, $inputRoles)) {
             switch ($userRole) {
                 case 'admin':
-                    return redirect('/'.$userRole);
+                    return redirect('/' . $userRole);
                     break;
                 case 'sales':
-                    return redirect('/'.$userRole);
+                    return redirect('/' . $userRole);
                     break;
                 case 'supplier':
-                    return redirect('/'.$userRole);
+                    return redirect('/' . $userRole);
                     break;
                 default:
                     return back();
             }
         }
         // return $next($request);
-        return back();
+        return redirect('sesi')->withErrors('Silahkan Login Terlebih Dahulu!');
     }
 }

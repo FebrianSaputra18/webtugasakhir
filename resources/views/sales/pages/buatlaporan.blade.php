@@ -23,8 +23,13 @@
                         <div class="col-12">
                             <form action="BuatLaporanInsert" method="POST">
                                 @csrf
-                                <h6>Tanggal inputan</h6>
-                                <input class="form-control mb-3 text-center" type="date" name="nonota" id="nonota">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h6 class="text-left">No. Nota</h6>
+                                        <input class="form-control mb-3 text-center col-6" type="text" name="nonota"
+                                            id="nonota">
+                                    </div>
+                                </div>
                                 <table class="table table-hover">
                                     <thead class="thead-dark">
                                         <tr class="text-center">
@@ -132,14 +137,6 @@
                                     <button type="submit" class="btn btn-primary">Simpan</button>
                                 </div>
                             </form>
-                            {{-- <button type="button" class="btn btn-primary btn-icon-split" data-toggle="modal"
-                                data-target="#exampleModalCenter">
-                                <span class="icon text-white-50">
-                                    <i class="fas fa-plus"></i>
-                                </span>
-                                <span class="text">Buat Laporan</span>
-
-                            </button> --}}
                         </div>
                     </div>
 

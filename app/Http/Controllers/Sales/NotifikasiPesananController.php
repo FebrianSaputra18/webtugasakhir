@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Sales;
 
 use App\Http\Controllers\Controller;
-use App\Models\BuatLaporan;
-use GuzzleHttp\Promise\Create;
+use App\Models\Notifikasi;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
-class BuatLaporanController extends Controller
+
+class NotifikasiPesananController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,9 @@ class BuatLaporanController extends Controller
      */
     public function index()
     {
-        $buatlaporans = BuatLaporan::all();
-        // dd($notifikasis);
-        return view('sales.pages.buatlaporan', ['buatlaporans' => $buatlaporans]);
+        $notifikasis = Notifikasi::with('admin')->get();
+        // dd($pesanans);
+        return view('sales.pages.notifikasipesanan', ['notifikasis' => $notifikasis]);
     }
 
     /**
@@ -29,9 +29,7 @@ class BuatLaporanController extends Controller
      */
     public function create()
     {
-        // dd('create');
-
-        return view('sales.pages.buatlaporan');
+        //
     }
 
     /**
@@ -42,11 +40,7 @@ class BuatLaporanController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-
-        // BuatLaporan::create($request->all());
-        BuatLaporan::create(array_merge($request->all(), ['user_id' => Auth::id()]));
-        return view('sales.pages.buatlaporan');
+        //
     }
 
     /**

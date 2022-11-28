@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Sales;
 
 use App\Http\Controllers\Controller;
+use App\Models\BuatLaporan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class LihatLaporanController extends Controller
@@ -15,7 +17,9 @@ class LihatLaporanController extends Controller
      */
     public function index()
     {
-        $buat_laporans = DB::table('buat_laporans')->get();
+        $buat_laporans = BuatLaporan::where('user_id', Auth::id())->get();
+        // $users = DB::table('users')->where('role', 2)->get();
+        // dd($buat_laporans);
         return view('sales.pages.lihatlaporan', ['buat_laporans' => $buat_laporans]);
     }
 

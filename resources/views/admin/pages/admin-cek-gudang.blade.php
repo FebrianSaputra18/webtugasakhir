@@ -1,4 +1,4 @@
-@extends('sales.index')
+@extends('admin.admin-index')
 @section('title', 'Dashboard')
 @section('content')
 
@@ -6,7 +6,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Tambah Karyawan</h1>
+        <h1 class="h3 mb-0 text-gray-800">Cek Gudang</h1>
     </div>
 
     <!-- Content Row -->
