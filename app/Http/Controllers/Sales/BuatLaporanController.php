@@ -7,6 +7,7 @@ use App\Models\BuatLaporan;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class BuatLaporanController extends Controller
 {
@@ -43,9 +44,15 @@ class BuatLaporanController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
-
+        $last_user_nota_id = DB::table('buat_laporans')->where('user_id', Auth::user()->id)->latest()->first();
+        if ($last_user_nota_id != null) {
+            $nota_id = $last_user_nota_id->nota_id + 1;
+        } else {
+            $nota_id = 1;
+        }
+        // dd($nota_id);
         // BuatLaporan::create($request->all());
-        BuatLaporan::create(array_merge($request->all(), ['user_id' => Auth::id()]));
+        BuatLaporan::create(array_merge($request->all(), ['user_id' => Auth::user()->id, 'nota_id' => $nota_id]));
         return view('sales.pages.buatlaporan');
     }
 
