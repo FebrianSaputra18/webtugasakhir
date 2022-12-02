@@ -126,29 +126,20 @@
                                         <tr role="row">
                                             <th rowspan="1" colspan="1">Nama</th>
                                             <th rowspan="1" colspan="1">Nomor HP</th>
-                                            <th rowspan="1" colspan="1">Role</th>
                                             <th rowspan="1" colspan="1">Alamat</th>
                                             <th rowspan="1" colspan="1">Tanggal</th>
                                             <th rowspan="1" colspan="1">Aksi</th>
                                         </tr>
                                     </thead>
-                                    {{-- <tfoot>
-                                        <tr>
-                                            <th rowspan="1" colspan="1">Name</th>
-                                            <th rowspan="1" colspan="1">Phone</th>
-                                            <th rowspan="1" colspan="1">Role</th>
-                                            <th rowspan="1" colspan="1">Start date</th>
-                                        </tr>
-                                    </tfoot> --}}
                                     <tbody>
                                         @forelse ($users as $key => $user)
                                         <tr class="odd">
                                             <td class="sorting_1">{{$user->name}}</td>
                                             <td class="sorting_1">{{$user->phone_number}}</td>
-                                            <td>{{$user->role==2?'Sales':'Supplier'}}</td>
                                             <td>{{$user->address}}</td>
                                             <td>{{$user->created_at}}</td>
-                                            <td><a href="{{route('karyawan.edit', $user->id)}}" class="btn btn-sm btn-primary">Edit</a> <button
+                                            <td><a href="{{route('karyawan.edit', $user->id)}}"
+                                                    class="btn btn-sm btn-primary">Edit</a> <button
                                                     onclick="deleteData('{{$user->id}}')"
                                                     class="btn btn-sm btn-danger">Hapus</button></td>
                                         </tr>
@@ -162,38 +153,6 @@
                             </div>
                         </div>
                         {{$users->links()}}
-                        {{-- <div class="row">
-                            <div class="col-sm-12 col-md-5">
-                                <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">
-                                    Showing 1 to 10 of 57 entries</div>
-                            </div>
-                            <div class="col-sm-12 col-md-7">
-                                <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-                                    <ul class="pagination">
-                                        <li class="paginate_button page-item previous disabled" id="dataTable_previous">
-                                            <a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0"
-                                                class="page-link">Previous</a>
-                                        </li>
-                                        <li class="paginate_button page-item active"><a href="#"
-                                                aria-controls="dataTable" data-dt-idx="1" tabindex="0"
-                                                class="page-link">1</a></li>
-                                        <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
-                                                data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
-                                        <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
-                                                data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
-                                        <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
-                                                data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
-                                        <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
-                                                data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
-                                        <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
-                                                data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
-                                        <li class="paginate_button page-item next" id="dataTable_next"><a href="#"
-                                                aria-controls="dataTable" data-dt-idx="7" tabindex="0"
-                                                class="page-link">Next</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div> --}}
                     </div>
                 </div>
             </div>

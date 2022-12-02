@@ -54,25 +54,18 @@
                                                 <th rowspan="1" colspan="1">Aksi</th>
                                             </tr>
                                         </thead>
-                                        {{-- <tfoot>
-                                            <tr>
-                                                <th rowspan="1" colspan="1">Name</th>
-                                                <th rowspan="1" colspan="1">Phone</th>
-                                                <th rowspan="1" colspan="1">Role</th>
-                                                <th rowspan="1" colspan="1">Start date</th>
-                                            </tr>
-                                        </tfoot> --}}
                                         <tbody>
                                             @forelse ($buat_laporans as $buatLaporan)
-
                                             <tr class="odd">
                                                 <td class="sorting_1">{{$buatLaporan->sales->name}}</td>
                                                 <td class="sorting_1">{{$buatLaporan->sales->phone_number}}</td>
                                                 <td>{{$buatLaporan->created_at}}</td>
                                                 <td class="sorting_1">{{$buatLaporan->nonota}}</td>
-                                                <td><a href="" class="btn btn-sm btn-primary">Lihat</a> <button
-                                                        onclick="deleteData('{{$buatLaporan->id}}')"
-                                                        class="btn btn-sm btn-danger">Hapus</button></td>
+                                                <td><a href="/admin-detail-laporan-sales"
+                                                        class="btn btn-sm btn-primary">Lihat</a>
+                                                    <button onclick="deleteData('{{$buatLaporan->id}}')"
+                                                        class="btn btn-sm btn-danger">Hapus</button>
+                                                </td>
                                             </tr>
                                             @empty
                                             <tr class="odd">
@@ -91,38 +84,6 @@
                 </div>
             </div>
         </div>
-
-        {{-- <div class="col-lg-12 mb-4">
-
-            <!-- Illustrations -->
-            <div class="card shadow mb-4 border-left-warning shadow h-100">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Lihat Laporan</h6>
-                </div>
-                <div class="card-body">
-                    <div class="text-center">
-                        minggu
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-12 mb-4">
-
-            <!-- Illustrations -->
-            <div class="card shadow mb-4 border-left-danger shadow h-100">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Lihat Laporan</h6>
-                </div>
-                <div class="card-body">
-                    <div class="text-center">
-                        minggu
-                    </div>
-
-                </div>
-            </div>
-        </div> --}}
     </div>
 
 </div>

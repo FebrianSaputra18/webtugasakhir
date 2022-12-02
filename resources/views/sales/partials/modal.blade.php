@@ -1,5 +1,5 @@
 <!-- Buat Laporan -->
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+{{-- <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -9,8 +9,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            {{-- <form action="BuatLaporanInsert" method="POST">
-                @csrf
+            <form>
                 <div class="modal-body">
                     <h6>Tanggal inputan</h6>
                     <thead>
@@ -27,16 +26,16 @@
                     </thead>
                     <tbody>
 
-                        @forelse ($notifikasis as $item)
+                        @forelse ($buat_laporans as $buatLaporan)
                         <tr class="odd">
-                            <td class="sorting_1">{{$item->Tepung100gr}}</td>
-                            <td class="sorting_1">{{$item->Tepung50gr}}</td>
-                            <td class="sorting_1">{{$item->Bumbu}}</td>
-                            <td class="sorting_1">{{$item->Bumbu}}</td>
-                            <td>{{$item->created_at}}</td>
+                            <td class="sorting_1">{{$buatLaporan->Tepung100gr}}</td>
+                            <td class="sorting_1">{{$buatLaporan->Tepung50gr}}</td>
+                            <td class="sorting_1">{{$buatLaporan->Bumbu}}</td>
+                            <td class="sorting_1">{{$buatLaporan->Bumbu}}</td>
+                            <td>{{$buatLaporan->created_at}}</td>
                             <td><a href="" class="btn btn-sm btn-primary">Lihat</a> <button
-                                    onclick="deleteData('{{$item->id}}')" class="btn btn-sm btn-danger">Hapus</button></
-                                    td>
+                                    onclick="deleteData('{{$buatLaporan->id}}')"
+                                    class="btn btn-sm btn-danger">Hapus</button></ td>
                         </tr>
 
                         @empty
@@ -50,10 +49,10 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
-            </form> --}}
+            </form>
         </div>
     </div>
-</div>
+</div> --}}
 
 <script>
     $(document).ready(function(){

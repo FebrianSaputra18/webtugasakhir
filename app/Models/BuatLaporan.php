@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,6 +14,8 @@ class BuatLaporan extends Model
         'nama',
         'nonota',
         'user_id',
+        'nota_id' => 'forein key',
+
         // 100gr
         'bawa100gr',
         'uang100gr',
@@ -42,7 +45,16 @@ class BuatLaporan extends Model
     public function sales()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
-
         // $laporan = User::find(2)->BuatLaporan;
+    }
+
+    public function nota()
+    {
+        return $this->belongsTo(User::class, 'nota_id', 'id');
+    }
+
+    public function getCreatedAtAttribute()
+    {
+        return Carbon::parse($this->attributes['created_at'])->translatedFormat('l, d F Y');
     }
 }

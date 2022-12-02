@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class LihatLaporanController extends Controller
+class SalesLaporanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,13 +17,11 @@ class LihatLaporanController extends Controller
      */
     public function index()
     {
-
-
-        $buat_laporans = BuatLaporan::where('user_id', Auth::id())->get();
-        // $users = DB::table('users')->where('role', 2)->get();
+        $buat_laporans = BuatLaporan::where('nota_id', Auth::id())->get();
+        // $buat_laporans = DB::table('buat_laporans')->where('user_id', Auth::id())->get();
         // dd($buat_laporans);
         // $buat_laporans = BuatLaporan::all();
-        return view('sales.pages.lihatlaporan', ['buat_laporans' => $buat_laporans]);
+        return view('sales.pages.detaillaporansales', ['buat_laporans' => $buat_laporans]);
     }
 
     /**

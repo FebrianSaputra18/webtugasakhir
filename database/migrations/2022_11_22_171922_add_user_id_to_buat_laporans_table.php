@@ -16,11 +16,20 @@ return new class extends Migration
     {
         Schema::table('buat_laporans', function (Blueprint $table) {
             $sales = User::where('role', 2)->first();
+            // $nota = User::where('role', 2)->first();
             $idsales = 1;
             if ($sales) {
                 $idsales = $sales->id;
             }
-            $table->bigInteger('user_id')->default($idsales)->after('id');
+            $table->BigInteger('user_id')->default($idsales)->after('id');
+            $table->BigInteger('nota_id')->default($idsales)->after('user_id');
+
+            // $idnota = +1;
+
+            // if ($idnota) {
+            //     $idnota = $sales->id;
+            // }
+            // $table->foreign('nota_id')->references('id')->on('user');
         });
     }
 
@@ -33,6 +42,7 @@ return new class extends Migration
     {
         Schema::table('buat_laporans', function (Blueprint $table) {
             $table->dropColumn('user_id');
+            $table->dropColumn('nota_id');
         });
     }
 };

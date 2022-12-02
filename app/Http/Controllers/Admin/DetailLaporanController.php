@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Sales;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\BuatLaporan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
-class LihatLaporanController extends Controller
+class DetailLaporanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,13 +16,10 @@ class LihatLaporanController extends Controller
      */
     public function index()
     {
-
-
-        $buat_laporans = BuatLaporan::where('user_id', Auth::id())->get();
-        // $users = DB::table('users')->where('role', 2)->get();
-        // dd($buat_laporans);
         // $buat_laporans = BuatLaporan::all();
-        return view('sales.pages.lihatlaporan', ['buat_laporans' => $buat_laporans]);
+        $buat_laporans = BuatLaporan::with('user_id', Auth::id())->get();
+        // $buat_laporans = BuatLaporan::time->get();
+        return view('admin.pages.admin-detail-laporan-sales', ['buat_laporans' => $buat_laporans]);
     }
 
     /**

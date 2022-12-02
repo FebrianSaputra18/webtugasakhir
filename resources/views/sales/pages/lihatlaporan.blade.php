@@ -62,9 +62,17 @@
                                                 <td class="sorting_1">{{$buatLaporan->sales->phone_number}}</td>
                                                 <td>{{$buatLaporan->created_at}}</td>
                                                 <td class="sorting_1">{{$buatLaporan->nonota}}</td>
-                                                <td><a href="" class="btn btn-sm btn-primary">Lihat</a> <button
-                                                        onclick="deleteData('{{$buatLaporan->id}}')"
-                                                        class="btn btn-sm btn-danger">Hapus</button></td>
+                                                <td>
+                                                    <a href="/detail-laporan-sales"
+                                                        class="btn btn-sm btn-primary">Lihat</a>
+                                                    <button onclick="deleteData('{{$buatLaporan->id}}')"
+                                                        class="btn btn-sm btn-danger">Hapus</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <div id="detailLaporan" class="col-12 rounded d-none">
+                                                    kontol
+                                                </div>
                                             </tr>
                                             @empty
                                             <tr class="odd">
