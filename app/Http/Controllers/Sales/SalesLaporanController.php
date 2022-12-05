@@ -17,10 +17,10 @@ class SalesLaporanController extends Controller
      */
     public function index()
     {
-        $buat_laporans = BuatLaporan::where('nota_id', Auth::id())->get();
+        // $buat_laporans = BuatLaporan::where('user_id', Auth::id())->get();
         // $buat_laporans = DB::table('buat_laporans')->where('user_id', Auth::id())->get();
         // dd($buat_laporans);
-        // $buat_laporans = BuatLaporan::all();
+        $buat_laporans = BuatLaporan::all();
         return view('sales.pages.detaillaporansales', ['buat_laporans' => $buat_laporans]);
     }
 

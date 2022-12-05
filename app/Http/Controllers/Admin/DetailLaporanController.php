@@ -17,8 +17,9 @@ class DetailLaporanController extends Controller
     public function index()
     {
         // $buat_laporans = BuatLaporan::all();
-        $buat_laporans = BuatLaporan::with('user_id', Auth::id())->get();
-        // $buat_laporans = BuatLaporan::time->get();
+        // $buat_laporans = BuatLaporan::where('user_id', Auth::id())->get();
+        $buat_laporans = BuatLaporan::where('user_id', Auth::id())->get();
+
         return view('admin.pages.admin-detail-laporan-sales', ['buat_laporans' => $buat_laporans]);
     }
 

@@ -31,16 +31,16 @@
             <!-- Illustrations -->
             <div class="card shadow mb-4 border-left-primary shadow h-100">
                 <div class="card-header py-3">
-                    @forelse ($buat_laporans as $nota)
+                    {{-- @forelse ($buat_laporans as $nota) --}}
 
                     <h6 class="m-0 font-weight-bold text-primary">Detail Laporan <span class="text-danger">No.
                             Nota</span>
-                        {{ $nota->nonota}}
+                        {{-- {{ $nota->nonota}} --}}
                     </h6>
-                    @empty
+                    {{-- @empty
                     <h6 class="text-danger text-center">Nomer Nota Belum Ada</h6>
 
-                    @endforelse
+                    @endforelse --}}
                 </div>
                 <div class="card-body">
                     <div class="row">

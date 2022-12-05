@@ -43,7 +43,7 @@ class BuatLaporanController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+        // dd($request->all('nota_id'));
         $last_user_nota_id = DB::table('buat_laporans')->where('user_id', Auth::user()->id)->latest()->first();
         if ($last_user_nota_id != null) {
             $nota_id = $last_user_nota_id->nota_id + 1;

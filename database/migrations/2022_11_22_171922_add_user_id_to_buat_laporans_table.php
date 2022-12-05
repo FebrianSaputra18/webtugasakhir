@@ -15,14 +15,18 @@ return new class extends Migration
     public function up()
     {
         Schema::table('buat_laporans', function (Blueprint $table) {
-            $sales = User::where('role', 2)->first();
-            // $nota = User::where('role', 2)->first();
-            $idsales = 1;
-            if ($sales) {
-                $idsales = $sales->id;
-            }
-            $table->BigInteger('user_id')->default($idsales)->after('id');
-            $table->BigInteger('nota_id')->default($idsales)->after('user_id');
+            // $sales = User::where('role', 2)->first();
+            // // $nota = User::where('role', 2)->first();
+            // $idsales = 1;
+            // if ($sales) {
+            //     $idsales = $sales->id;
+            // }
+
+            // $table->unsignedBigInteger('user_id')->default($idsales)->after('id');
+            // $table->unsignedBigInteger('nota_id')->default($idsales)->after('user_id');
+
+            $table->unsignedBigInteger('user_id')->after('id');
+            $table->unsignedBigInteger('nota_id')->after('user_id');
 
             // $idnota = +1;
 

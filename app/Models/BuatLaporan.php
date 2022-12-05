@@ -10,11 +10,15 @@ class BuatLaporan extends Model
 {
     use HasFactory;
 
+    protected $foreignKeys = [
+        'nota' => 'nota_id'
+    ];
+
     protected $fillable = [
         'nama',
         'nonota',
         'user_id',
-        'nota_id' => 'forein key',
+        'nota_id',
 
         // 100gr
         'bawa100gr',

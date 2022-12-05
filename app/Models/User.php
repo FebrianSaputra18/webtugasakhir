@@ -26,7 +26,7 @@ class User extends Authenticatable
 
     public function detail()
     {
-        return $this->hasMany(BuatlLaporan::class);
+        return $this->hasMany(BuatLaporan::class);
     }
 
     /**
