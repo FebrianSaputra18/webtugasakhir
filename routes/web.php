@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CekGudangController;
 use App\Http\Controllers\Admin\DetailLaporanController;
 use App\Http\Controllers\Admin\LaporanController;
 use App\Http\Controllers\Sales\BuatLaporanController;
@@ -9,9 +10,8 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Sales\LihatLaporanController;
 use App\Http\Controllers\Sales\NotifikasiPesananController;
 use App\Http\Controllers\Sales\SalesLaporanController;
-use App\Models\BuatLaporan;
+use App\Http\Controllers\TambahGudangController;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,12 +57,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin-detail-laporan-sales', [DetailLaporanController::class, 'index']);
 });
 
-
-Route::get('/admin-cek-gudang', function () {
-    return view('admin.pages.admin-cek-gudang');
-});
-
-
 Route::get('/admin-buat-notifikasi', [NotifikasiController::class, 'index']);
 
 Route::get('/notifikasi/create', [NotifikasiController::class, 'create']);
@@ -76,6 +70,14 @@ Route::get('/pesanan/create', [PesananController::class, 'create']);
 Route::post('PesananInsert', [PesananController::class, 'store']);
 
 Route::get('/admin-cek-laporan-sales', [LaporanController::class, 'index']);
+
+Route::get('/admin-tambah-barang-gudang', [TambahGudangController::class, 'index']);
+
+Route::post('TambahGudang', [TambahGudangController::class, 'store']);
+
+Route::get('/admin-cek-gudang', [CekGudangController::class, 'index']);
+
+
 
 // Route::get('/admin-detail-laporan-sales', [DetailLaporanController::class, 'index']);
 
@@ -101,9 +103,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/sales-cek-notifikasi', [NotifikasiPesananController::class, 'index']);
 });
 
-Route::get('/sales-cek-gudang', function () {
-    return view('cekgudang');
-});
+Route::get('/sales-cek-gudang', [CekGudangController::class, 'index']);
 
 // endSales
 

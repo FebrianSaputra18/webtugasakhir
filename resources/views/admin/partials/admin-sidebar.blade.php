@@ -40,6 +40,7 @@
                 <a class="collapse-item" href="{{route('karyawan.index')}}">Cek Data sales</a>
                 <a class="collapse-item" href="{{route('data-supplier')}}">Cek Data supplier</a>
                 <a class="collapse-item" href="/admin-cek-laporan-sales">Cek Laporan Sales</a>
+                <a class="collapse-item" href="/admin-tambah-barang-gudang">Tambah Barang Gudang</a>
                 <a class="collapse-item" href="{{route('karyawan.create')}}">Tambah Karyawan</a>
             </div>
         </div>

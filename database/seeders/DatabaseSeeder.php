@@ -25,15 +25,21 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make('password'),
             ],
             [
-                'name' => 'sales',
-                'phone_number' => '222',
+                'name' => 'Sukri',
+                'phone_number' => '087788631832',
                 'role' => 2,
                 'password' => Hash::make('password'),
             ],
             [
-                'name' => 'sales2',
-                'phone_number' => '333',
+                'name' => 'Faisol',
+                'phone_number' => '087788631833',
                 'role' => 2,
+                'password' => Hash::make('password'),
+            ],
+            [
+                'name' => 'Sukardi',
+                'phone_number' => '087788631834',
+                'role' => 3,
                 'password' => Hash::make('password'),
             ],
             // [
